@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      gridTemplateColumns: {
+        minmax: "repeat(auto-fit, minmax(280px, 1fr))",
+      },
       colors: {
         red: "#d25a5c",
         white: "#edf6fe",
