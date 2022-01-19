@@ -1,43 +1,55 @@
-import React from "react";
+import { useEffect } from "react";
 
-const ChatCard = () => {
-  const getUser = () => {
-    return {
-      id: "1",
-      username: "mohamed",
-    };
+const ChatCard = ({ item }) => {
+  const getLevel = (levels) => {
+    if (levels === "Any Level" || levels === "Upper Beginner") {
+      return "success";
+    } else if (levels === "Advanced" || levels === "Intermediate") {
+      return "warning";
+    } else {
+      return "danger";
+    }
   };
+
   return (
-    <div class=" bg-secondry-gray rounded-xl flex flex-col overflow-hidden ">
-      <div className="flex flex-wrap items-center flex-1 gap-3 px-3 py-3">
-        {Array.from({ length: 6 }, () => getUser()).map((item) => (
-          <div class="w-[20%] max-w-[33.333%] overflow-hidden rounded-full border border-white/20">
+    <div className="flex flex-col overflow-hidden bg-secondry-gray rounded-xl">
+      <div className="flex flex-wrap items-center flex-1 gap-3 px-3 py-3 min-h-[200px]">
+        {item.clients.map((items, idx) => (
+          <div
+            id={idx}
+            class="w-[20%] max-w-[33.333%] overflow-hidden rounded-full border border-white/20"
+          >
             <img
               className="object-cover w-full h-full rounded-full"
-              src="/images/users/user1.jpg"
+              src={items.avatar}
               alt="user"
-              srcset=""
             />
           </div>
         ))}
       </div>
 
-      <div class="flex items-center justify-between h-14 bg-[#242632] px-4 py-2">
-        <div>
-          <div class="flex items-center gap-2">
-            <h3 class="text-white">English</h3>
-            <div class="space-x-1">
-              <span class="bg-yellow/30 px-1 rounded-sm"></span>
-              <span class="bg-yellow px-1 rounded-sm"></span>
-              <span class="bg-yellow/30 px-1 rounded-sm"></span>
+      <div className="flex items-center justify-between h-16 bg-[#242632] px-4">
+        <div className="space-y-1">
+          <div className="flex items-center gap-3">
+            <h3 className="text-white">{item.language}</h3>
+            <div className="space-x-1">
+              <span
+                className={`${`bg-${getLevel(item.level)}/30`} px-1 rounded-sm`}
+              ></span>
+              <span
+                className={`bg-${getLevel(item.level)} px-1 rounded-sm`}
+              ></span>
+              <span
+                className={`bg-${getLevel(item.level)}/30 px-1 rounded-sm`}
+              ></span>
             </div>
           </div>
-          <p class="text-gray-400">Hey,come in guys</p>
+          <p className="max-w-[300px] text-gray-400 truncate">{item.topic}</p>
         </div>
-        <div class="flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 text-gray-400 hover:text-gray-300 cursor-pointer"
+            className="w-6 h-6 text-gray-400 cursor-pointer hover:text-gray-300"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -55,10 +67,10 @@ const ChatCard = () => {
               d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
             />
           </svg>
-          <div class=" rounded-full bg-[#3b3f4a] p-2 flex items-center justify-center cursor-not-allowed">
+          <div className=" rounded-full bg-[#3b3f4a] p-2 flex items-center justify-center cursor-not-allowed">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-gray-400"
+              className="w-5 h-5 text-gray-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

@@ -1,6 +1,6 @@
 const CreateRoom = ({}) => {
   return (
-    <div className="flex flex-col items-center justify-center bg-secondry-gray rounded-xl">
+    <div className="flex flex-col items-center justify-center py-4 bg-secondry-gray rounded-xl">
       <button className="px-3 py-3 mt-2 bg-white rounded-full">
         <svg
           xmlns="http://www.w3.org/2000/svg"

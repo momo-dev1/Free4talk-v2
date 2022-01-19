@@ -1,4 +1,4 @@
-const data = [
+export const data = [
   {
     "61e750b4de003d002e8945ee": {
       id: "61e750b4de003d002e8945ee",
