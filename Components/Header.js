@@ -13,7 +13,7 @@ const Header = () => {
       <div>
         {login ? (
           <>
-            <div className="flex items-center gap-2 pr-2 py-[.5px] overflow-hidden border border-light-gray rounded-[100vw]">
+            <div className="flex items-center gap-2 pr-2 py-[.5px] overflow-hidden border border-white/20 rounded-[100vw]">
               <div className="w-7 h-7 ml-[.5px]">
                 <img
                   className="rounded-full"
