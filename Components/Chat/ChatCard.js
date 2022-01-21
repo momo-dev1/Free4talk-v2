@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 const ChatCard = ({ item, direction }) => {
   const [closed, setClosed] = useState(false);
 
-  const getLevel = (levels) => {
-    if (levels === "Any Level" || levels === "Upper Beginner") {
-      return "success";
-    } else if (levels === "Advanced" || levels === "Intermediate") {
-      return "warning";
-    } else {
-      return "warning";
-    }
+  const bgColor = {
+    "Any Level": "success",
+    Beginner: "success",
+    "Upper Beginner": "success",
+    Intermediate: "warning",
+    "Upper Intermediate": "warning",
+    Advanced: "danger",
+    "Upper Advanced": "danger",
   };
   useEffect(() => {
     if (item.maxPeople < item.clients.length) {
@@ -25,7 +25,7 @@ const ChatCard = ({ item, direction }) => {
           <div class="pb-[40%] relative">
             <div class="absolute left-0 top-0 w-full h-full flex items-center flex-wrap overflow-hidden">
               {item.clients.map((person, idx) => (
-                <div class="w-1/5 max-w-[33.33%] p-2 rounded-full overflow-hidden">
+                <div class="w-1/5  max-w-[33.33%] p-2 rounded-full overflow-hidden">
                   <img
                     className="object-cover w-full h-full rounded-full"
                     src={person.avatar}
@@ -49,17 +49,21 @@ const ChatCard = ({ item, direction }) => {
 
       <div className="flex items-center justify-between h-16 bg-[#242632] px-4">
         <div className="space-y-1">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 ">
             <h3 className="text-white">{item.language}</h3>
             <div className="flex gap-1">
               <span
-                className={`${`bg-${getLevel(item.level)}`} w-2 h-6 rounded-sm`}
+                className={`${`bg-${
+                  bgColor[item.level]
+                } opacity-30`} w-2 h-6 rounded-sm`}
               ></span>
               <span
-                className={`${`bg-${getLevel(item.level)}`} w-2 h-6 rounded-sm`}
+                className={`${`bg-${bgColor[item.level]}`} w-2 h-6 rounded-sm`}
               ></span>
               <span
-                className={`${`bg-${getLevel(item.level)}`} w-2 h-6 rounded-sm`}
+                className={`${`bg-${
+                  bgColor[item.level]
+                } opacity-30`} w-2 h-6 rounded-sm`}
               ></span>
             </div>
           </div>

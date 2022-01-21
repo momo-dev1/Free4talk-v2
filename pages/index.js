@@ -28,6 +28,5 @@ export async function getStaticProps(context) {
     props: {
       groups: data,
     },
-    revalidate: 10,
   };
 }

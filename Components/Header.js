@@ -15,8 +15,8 @@ const Header = () => {
       <div>
         {login ? (
           <>
-            <div className="flex items-center gap-2 pr-3 py-[.5px] overflow-hidden border-2 border-white/20 rounded-[100vw]">
-              <div className="w-7 h-7 ml-[.5px]">
+            <div className="cursor-pointer hover:border-primary-blue duration-500 flex items-center gap-2 pr-3 py-[.5px] overflow-hidden border-2 border-white/20 rounded-[100vw]">
+              <div className="w-8 h-8 ml-[.5px]">
                 <img
                   className="rounded-full"
                   src="/images/users/user1.jpg"
