@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const ChatCard = ({ item }) => {
+const ChatCard = ({ item, direction }) => {
+  const [closed, setClosed] = useState(false);
+
   const getLevel = (levels) => {
     if (levels === "Any Level" || levels === "Upper Beginner") {
       return "success";
@@ -10,42 +12,64 @@ const ChatCard = ({ item }) => {
       return "danger";
     }
   };
+  useEffect(() => {
+    if (item.maxPeople < item.clients.length) {
+      setClosed(true);
+    }
+  }, []);
 
   return (
-    <div className="flex flex-col overflow-hidden bg-secondry-gray rounded-xl">
-      <div className="flex flex-wrap items-center flex-1 gap-3 px-3 py-3 min-h-[200px]">
-        {item.clients.map((items, idx) => (
-          <div
-            id={idx}
-            class="w-[20%] max-w-[33.333%] overflow-hidden rounded-full border border-white/20"
-          >
-            <img
-              className="object-cover w-full h-full rounded-full"
-              src={items.avatar}
-              alt="user"
-            />
+    <div className="flex flex-col overflow-hidden bg-secondry-gray rounded-xl ">
+      <div class="p-2 flex-1  rounded-xl min-w-[240px]">
+        <div class="max-w-[340px] w-full">
+          <div class="pb-[40%] relative">
+            <div class="absolute left-0 top-0 w-full h-full flex items-center flex-wrap overflow-hidden">
+              {item.clients.map((person, idx) => (
+                <div class="w-1/5 max-w-[33.33%] p-2 rounded-full overflow-hidden">
+                  <img
+                    className="object-cover w-full h-full rounded-full"
+                    src={person.avatar}
+                    alt="user avatar"
+                  />
+                </div>
+              ))}
+              {Array.from({ length: item.maxPeople }, () => (
+                <div class="w-1/5 max-w-[33.33%] p-2 rounded-full overflow-hidden">
+                  <img
+                    className="object-cover w-full h-full border-2 border-dotted rounded-full opacity-30"
+                    src="/images/unnamed.png"
+                    alt="user avatar"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
+        </div>
       </div>
 
       <div className="flex items-center justify-between h-16 bg-[#242632] px-4">
         <div className="space-y-1">
           <div className="flex items-center gap-3">
             <h3 className="text-white">{item.language}</h3>
-            <div className="space-x-1">
+            <div className="flex gap-1">
               <span
-                className={`${`bg-${getLevel(item.level)}/30`} px-1 rounded-sm`}
+                className={`${`bg-${getLevel(
+                  item.level
+                )}/30`} w-2 h-6 rounded-sm`}
               ></span>
               <span
-                className={`bg-${getLevel(item.level)} px-1 rounded-sm`}
+                className={`${`bg-${getLevel(item.level)}`} w-2 h-6 rounded-sm`}
               ></span>
               <span
-                className={`bg-${getLevel(item.level)}/30 px-1 rounded-sm`}
+                className={`${`bg-${getLevel(
+                  item.level
+                )}/30`} w-2 h-6 rounded-sm`}
               ></span>
             </div>
           </div>
           <p className="max-w-[300px] text-gray-400 truncate">{item.topic}</p>
         </div>
+
         <div className="flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -67,22 +91,41 @@ const ChatCard = ({ item }) => {
               d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
             />
           </svg>
-          <div className=" rounded-full bg-[#3b3f4a] p-2 flex items-center justify-center cursor-not-allowed">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-              />
-            </svg>
-          </div>
+          {closed ? (
+            <div className=" rounded-full bg-[#3b3f4a] p-2 flex items-center justify-center cursor-not-allowed">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                />
+              </svg>
+            </div>
+          ) : (
+            <div className="p-2 rounded-full cursor-pointer bg-primary-blue">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4 h-4 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </div>
+          )}
         </div>
       </div>
     </div>
