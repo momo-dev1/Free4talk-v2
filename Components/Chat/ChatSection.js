@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ChatCard from "./ChatCard";
-import ChatHeader from "./ChatHeader";
-import CreateRoom from "./CreateRoom";
+import ChatCard from "../Chat/ChatCard";
+import ChatHeader from "../Chat/ChatHeader";
+import CreateRoom from "../CreateRoom";
 
 const ChatSection = ({ groups }) => {
   const [direction, setDirection] = useState("row");

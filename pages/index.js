@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Hero from "../Components/Hero";
 import Header from "../Components/Header";
-import ChatSection from "../Components/ChatSection";
+import ChatSection from "../Components/Chat/ChatSection";
 
 export default function Home({ groups }) {
   return (
