@@ -8,7 +8,9 @@ const Header = () => {
         <div className="w-8 h-8">
           <img src="/images/logo.svg" alt="logo" />
         </div>
-        <h4 className="font-bold text-white">Free4Talk v2</h4>
+        <h4 className="font-bold text-white">
+          <a href="/">Free4Talk v2</a>
+        </h4>
       </div>
       <div>
         {login ? (

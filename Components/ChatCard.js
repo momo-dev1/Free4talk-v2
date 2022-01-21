@@ -9,7 +9,7 @@ const ChatCard = ({ item, direction }) => {
     } else if (levels === "Advanced" || levels === "Intermediate") {
       return "warning";
     } else {
-      return "danger";
+      return "warning";
     }
   };
   useEffect(() => {
@@ -53,17 +53,13 @@ const ChatCard = ({ item, direction }) => {
             <h3 className="text-white">{item.language}</h3>
             <div className="flex gap-1">
               <span
-                className={`${`bg-${getLevel(
-                  item.level
-                )}/30`} w-2 h-6 rounded-sm`}
+                className={`${`bg-${getLevel(item.level)}`} w-2 h-6 rounded-sm`}
               ></span>
               <span
                 className={`${`bg-${getLevel(item.level)}`} w-2 h-6 rounded-sm`}
               ></span>
               <span
-                className={`${`bg-${getLevel(
-                  item.level
-                )}/30`} w-2 h-6 rounded-sm`}
+                className={`${`bg-${getLevel(item.level)}`} w-2 h-6 rounded-sm`}
               ></span>
             </div>
           </div>
