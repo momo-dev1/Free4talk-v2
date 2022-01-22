@@ -21,7 +21,7 @@ export default function Home({ groups }) {
   );
 }
 export async function getStaticProps(context) {
-  const res = await fetch("http://localhost:3000/api/groups");
+  const res = await fetch(`${process.env.NEXT_URL}/api/groups`);
   const data = await res.json();
 
   return {
