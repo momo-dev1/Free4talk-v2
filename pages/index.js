@@ -3,7 +3,7 @@ import Hero from "../Components/Hero";
 import Header from "../Components/Header";
 import ChatSection from "../Components/Chat/ChatSection";
 
-export default function Home({ groups }) {
+export default function Home() {
   return (
     <div className="px-3 bg-primary-gray">
       <Head>
@@ -15,18 +15,8 @@ export default function Home({ groups }) {
       <section className="max-w-6xl mx-auto">
         <Header />
         <Hero />
-        <ChatSection groups={groups} />
+        <ChatSection />
       </section>
     </div>
   );
-}
-export async function getStaticProps(context) {
-  const res = await fetch(`${process.env.NEXT_URL}/api/groups`);
-  const data = await res.json();
-
-  return {
-    props: {
-      groups: data,
-    },
-  };
 }

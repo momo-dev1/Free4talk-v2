@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import ChatCard from "../Chat/ChatCard";
 import ChatHeader from "../Chat/ChatHeader";
 import CreateRoom from "../CreateRoom";
+import { data } from "../../data";
 
-const ChatSection = ({ groups }) => {
+const ChatSection = () => {
   const [direction, setDirection] = useState("row");
   return (
     <section className="mt-10">
@@ -14,7 +15,7 @@ const ChatSection = ({ groups }) => {
         }`}
       >
         <CreateRoom />
-        {groups?.map((item, idx) => {
+        {data?.map((item, idx) => {
           return (
             <div key={idx}>
               {Object.values(item).map((item) => (
