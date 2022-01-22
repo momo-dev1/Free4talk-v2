@@ -1,5 +1,3 @@
-import React from "react";
-
 const ChatHeader = ({ setDirection }) => {
   return (
     <div className="flex items-center justify-between text-gray-400">

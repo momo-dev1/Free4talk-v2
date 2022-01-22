@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Hero from "../Components/Hero";
-import Header from "../Components/Header";
-import ChatSection from "../Components/Chat/ChatSection";
+import Hero from "../components/Hero";
+import Header from "../components/Header";
+import ChatSection from "../components/Chat/ChatSection";
 
 export default function Home() {
   return (

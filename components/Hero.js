@@ -1,5 +1,3 @@
-import React from "react";
-
 const Hero = () => {
   return (
     <div className="w-full px-10 py-8 my-3 font-medium text-white rounded-2xl bg-primary-blue">
