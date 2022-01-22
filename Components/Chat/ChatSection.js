@@ -5,7 +5,6 @@ import CreateRoom from "../CreateRoom";
 
 const ChatSection = ({ groups }) => {
   const [direction, setDirection] = useState("row");
-
   return (
     <section className="mt-10">
       <ChatHeader setDirection={setDirection} />
@@ -15,13 +14,13 @@ const ChatSection = ({ groups }) => {
         }`}
       >
         <CreateRoom />
-        {groups.map((item) => {
+        {groups?.map((item, idx) => {
           return (
-            <>
+            <div key={idx}>
               {Object.values(item).map((item) => (
                 <ChatCard key={item.id} item={item} direction={direction} />
               ))}
-            </>
+            </div>
           );
         })}
       </div>
