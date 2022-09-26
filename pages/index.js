@@ -12,7 +12,7 @@ export default function Home() {
         </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="max-w-6xl mx-auto">
+      <section className="max-w-6xl mx-auto ">
         <Header />
         <Hero />
         <ChatSection />

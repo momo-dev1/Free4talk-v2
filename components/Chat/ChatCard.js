@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import LevelBars from "../LevelBars";
 
@@ -21,10 +22,12 @@ const ChatCard = ({ item, direction }) => {
                   key={idx}
                   className="w-1/5 max-w-[33.33%] p-2 rounded-full overflow-hidden"
                 >
-                  <img
+                  <Image
                     className="object-cover w-full h-full rounded-full"
                     src={person.avatar}
                     alt="user avatar"
+                    width={100}
+                    height={100}
                   />
                 </div>
               ))}
@@ -37,6 +40,7 @@ const ChatCard = ({ item, direction }) => {
                     className="object-cover w-full h-full border-2 border-dotted rounded-full opacity-30"
                     src="/images/unnamed.png"
                     alt="user avatar"
+
                   />
                 </div>
               ))}
